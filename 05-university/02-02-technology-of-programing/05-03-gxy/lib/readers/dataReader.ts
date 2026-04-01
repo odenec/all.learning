@@ -1,5 +1,3 @@
-// lib/readers/dataReader.ts - исправленный парсинг
-
 import fs from "fs";
 import path from "path";
 import { GridData } from "../types";

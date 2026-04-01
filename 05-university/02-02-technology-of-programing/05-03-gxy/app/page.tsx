@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import DataViewer from "./components/DataViewer";
+import RezViewer from "./components/RezViewer";
 type Result = {
   x: number;
   y: number;
@@ -37,6 +38,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState(0);
   const [functionInfo, setFunctionInfo] = useState<FunctionInfo | null>(null);
   const [showDataViewer, setShowDataViewer] = useState(false);
+  const [showRezViewer, setShowRezViewer] = useState(false);
 
   useEffect(() => {
     const fetchFunctionInfo = async () => {
@@ -295,7 +297,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          🧮 G(x,y) {functionInfo && `- ${functionInfo.expression}`}
+          🧮 G(x,y) {functionInfo && `= ${functionInfo.expression}`}
         </h1>
 
         <div className={styles.controlsRow}>
@@ -325,6 +327,12 @@ export default function Home() {
             >
               {showDataViewer ? "📂 Скрыть файлы" : "📂 Показать dat-файлы"}
             </button>
+            <button
+              onClick={() => setShowRezViewer(!showRezViewer)}
+              className={`${styles.button} ${styles.dataButton}`}
+            >
+              {showRezViewer ? "📦 Скрыть rez" : "📦 Показать rez"}
+            </button>
           </div>
         </div>
 
@@ -333,6 +341,7 @@ export default function Home() {
         {showDataViewer && (
           <DataViewer onClose={() => setShowDataViewer(false)} />
         )}
+        {showRezViewer && <RezViewer onClose={() => setShowRezViewer(false)} />}
 
         {calculations.length > 0 && (
           <>

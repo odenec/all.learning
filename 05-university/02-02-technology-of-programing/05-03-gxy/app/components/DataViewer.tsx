@@ -66,9 +66,6 @@ export default function DataViewer({ onClose }: DataViewerProps) {
             <p>🧮 Функция: {grid.functionExpression}</p>
             <p>📌 Вариант: {grid.variant}</p>
 
-            {/* <p>📏 X ({grid.x_values?.length}): {grid.x_values?.join(", ")}</p>
-            <p>📐 Y ({grid.y_values?.length}): {grid.y_values?.join(", ")}</p> */}
-
             {grid.x_values?.length > 0 &&
             grid.y_values?.length > 0 &&
             grid.matrix?.length > 0 ? (

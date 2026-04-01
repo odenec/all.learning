@@ -4,6 +4,7 @@ import { FunctionValidator } from "./validators/functionValidators";
 import { FunctionCalculator } from "./calculators/functionCalculator";
 import { TableFormatter } from "./formatters/tableFormatter";
 import { FileLogger } from "./loggers/fileLogger";
+import { BinaryRezWriter } from "./writers/binaryRezWriter";
 
 export class FunctionComputer {
   public variant: number;
@@ -13,6 +14,7 @@ export class FunctionComputer {
   private calculator: FunctionCalculator;
   private formatter: TableFormatter;
   private logger: FileLogger;
+  private binaryWriter: BinaryRezWriter;
 
   constructor(variant: number = 16, functionExpression: string = "y / lg(x)") {
     this.variant = variant;
@@ -22,6 +24,7 @@ export class FunctionComputer {
     this.calculator = new FunctionCalculator();
     this.formatter = new TableFormatter();
     this.logger = new FileLogger(path.join(process.cwd(), "output"));
+    this.binaryWriter = new BinaryRezWriter();
   }
 
   public computeFunction(
@@ -32,6 +35,7 @@ export class FunctionComputer {
     functionExpression: string;
     results: ComputeResult[];
     dataFile: string;
+    rezFile: string;
   } {
     const errors: Array<{
       filename: string;
@@ -64,7 +68,6 @@ export class FunctionComputer {
 
       this.logger.clearDataFile(dataFilename);
 
-      const isEvenVariant = this.variant % 2 === 0;
       const tableContent = this.formatter.formatTable(
         params.x_values,
         params.y_values,
@@ -76,19 +79,42 @@ export class FunctionComputer {
       const dataContent = [
         functionHeader,
         `Количество точек: x=${params.x_values.length}, y=${params.y_values.length}`,
-        `Вариант: ${this.variant} (${isEvenVariant ? "четный" : "нечетный"})`,
+
         "",
         tableContent,
         "",
       ].join("\n");
 
       this.logger.writeDataFile(dataFilename, dataContent);
+      //lab 6
+
+      const matrix: number[][] = [];
+      for (let yIdx = 0; yIdx < params.y_values.length; yIdx++) {
+        const row: number[] = [];
+        for (let xIdx = 0; xIdx < params.x_values.length; xIdx++) {
+          const res = results.find(
+            (r) =>
+              Math.abs(r.x - params.x_values[xIdx]) < 1e-9 &&
+              Math.abs(r.y - params.y_values[yIdx]) < 1e-9,
+          );
+          row.push(res ? res.result : NaN);
+        }
+        matrix.push(row);
+      }
+
+      const rezFilename = this.binaryWriter.writeRezFile(
+        dataSetNumber,
+        params.x_values,
+        params.y_values,
+        matrix,
+      );
 
       return {
         variant: this.variant,
         functionExpression: this.functionExpression,
         results,
         dataFile: dataFilename,
+        rezFile: rezFilename,
       };
     } catch (error) {
       const errorMessage =
@@ -104,6 +130,7 @@ export class FunctionComputer {
     dataFile: string;
   }> {
     const startTime = new Date();
+    this.logger.clearOutputDir();
     const results = [];
     const dataFiles: string[] = [];
 

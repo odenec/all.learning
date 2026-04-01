@@ -17,13 +17,7 @@ export class FileLogger {
   }
 
   private initDirectories() {
-    if (fs.existsSync(this.outputDir)) {
-      // Очищаем папку output при инициализации
-      const files = fs.readdirSync(this.outputDir);
-      for (const file of files) {
-        fs.unlinkSync(path.join(this.outputDir, file));
-      }
-    } else {
+    if (!fs.existsSync(this.outputDir)) {
       fs.mkdirSync(this.outputDir, { recursive: true });
     }
   }
@@ -82,6 +76,17 @@ export class FileLogger {
     const filePath = path.join(this.outputDir, filename);
     if (fs.existsSync(filePath)) {
       fs.unlinkSync(filePath);
+    }
+  }
+  clearOutputDir() {
+    if (!fs.existsSync(this.outputDir)) return;
+
+    const files = fs.readdirSync(this.outputDir);
+    for (const file of files) {
+      const filePath = path.join(this.outputDir, file);
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+      }
     }
   }
 }
