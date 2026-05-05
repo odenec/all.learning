@@ -1,0 +1,80 @@
+export const COLOR_PALETTE = [
+  {
+    name: "Soft Gray",
+    bg: "#e2e8f0",
+    text: "#0f172a",
+    grid: "rgba(15,23,42,0.08)",
+  },
+  {
+    name: "Navy",
+    bg: "#0a1929",
+    text: "#90caf9",
+    grid: "rgba(144,202,249,0.12)",
+  },
+  {
+    name: "Warm Beige",
+    bg: "#f5ede3",
+    text: "#3f3f46",
+    grid: "rgba(63,63,70,0.08)",
+  },
+  {
+    name: "Indigo",
+    bg: "#1e1b4b",
+    text: "#a5b4fc",
+    grid: "rgba(165,180,252,0.15)",
+  },
+  {
+    name: "Light Blue",
+    bg: "#bae6fd",
+    text: "#075985",
+    grid: "rgba(7,89,133,0.12)",
+  },
+  {
+    name: "Crimson",
+    bg: "#3b0a1e",
+    text: "#fda4af",
+    grid: "rgba(253,164,175,0.15)",
+  },
+  {
+    name: "Mint Light",
+    bg: "#bbf7d0",
+    text: "#065f46",
+    grid: "rgba(6,95,70,0.12)",
+  },
+  {
+    name: "Teal Dark",
+    bg: "#042f2e",
+    text: "#5eead4",
+    grid: "rgba(94,234,212,0.15)",
+  },
+  {
+    name: "Lavender Light",
+    bg: "#ddd6fe",
+    text: "#4c1d95",
+    grid: "rgba(76,29,149,0.12)",
+  },
+  {
+    name: "Orange",
+    bg: "#431407",
+    text: "#fdba74",
+    grid: "rgba(253,186,116,0.15)",
+  },
+  {
+    name: "Butter Yellow",
+    bg: "#fde68a",
+    text: "#713f12",
+    grid: "rgba(113,63,18,0.12)",
+  },
+  {
+    name: "Cyan",
+    bg: "#0c3b4a",
+    text: "#67e8f9",
+    grid: "rgba(103,232,249,0.15)",
+  },
+  {
+    name: "Rose Light",
+    bg: "#fecdd3",
+    text: "#9f1239",
+    grid: "rgba(159,18,57,0.12)",
+  },
+];
