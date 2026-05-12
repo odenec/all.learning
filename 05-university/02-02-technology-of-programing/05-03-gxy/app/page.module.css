@@ -1,0 +1,425 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: #fff;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.controlsRow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.controlGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.input {
+  width: 60px;
+  height: 32px;
+  padding: 0 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.button {
+  height: 32px;
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.buttonSuccess {
+  background: rgba(40, 167, 69, 0.3);
+  border-color: rgba(40, 167, 69, 0.6);
+}
+
+.buttonSuccess:hover:not(:disabled) {
+  background: rgba(40, 167, 69, 0.4);
+  border-color: rgba(40, 167, 69, 0.8);
+}
+
+.buttonDisabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.statusBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.tabsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.tab {
+  padding: 0.5rem 1.5rem;
+  background: none;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.activeTab {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.tabComplete {
+  background: rgba(40, 167, 69, 0.3);
+  color: #a3ffb3;
+}
+
+.tabComplete:hover {
+  background: rgba(40, 167, 69, 0.4);
+}
+
+.tabPartial {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffd966;
+}
+
+.tabPartial:hover {
+  background: rgba(255, 193, 7, 0.3);
+}
+
+.tabError {
+  background: rgba(220, 53, 69, 0.3);
+  color: #ffb3b3;
+}
+
+.tabError:hover {
+  background: rgba(220, 53, 69, 0.4);
+}
+
+.errorsContainer {
+  min-height: 40px;
+  margin-bottom: 1rem;
+}
+
+.tabError {
+  text-align: center;
+  color: #ffb3b3;
+  padding: 0.6rem;
+  background: rgba(255, 80, 80, 0.15);
+  border-radius: 8px;
+}
+
+.tabContent {
+  min-height: 400px;
+  padding: 1rem 0;
+}
+
+.inputsRow {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.inputGroup {
+  flex: 1;
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.inputGroupTitle {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.inputWithButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.fieldInput {
+  width: 80px;
+  height: 32px;
+  padding: 0 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.fieldInputSmall {
+  width: 70px;
+  height: 32px;
+  padding: 0 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.fieldInputSmall::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+}
+
+.fieldButton {
+  height: 32px;
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.fieldButton:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.xFieldsSection {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+.xFieldsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+}
+
+.xFieldsHeader span {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.xFieldsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.xField {
+  width: 80px;
+  height: 32px;
+  padding: 0 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #fff;
+  text-align: center;
+}
+
+.xFieldError {
+  border-color: rgba(220, 53, 69, 0.6);
+  background: rgba(220, 53, 69, 0.1);
+}
+
+.info {
+  text-align: center;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  color: #a3ffb3;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 8px;
+}
+
+.resultsSection {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.tableWrapper {
+  max-height: 400px;
+  overflow: auto;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.table {
+  min-width: 500px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background: rgb(45, 81, 102);
+  padding: 0.8rem 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tableWrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.tableWrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tableWrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+}
+
+.tableWrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.error {
+  text-align: center;
+  color: #ffb3b3;
+  margin: 1rem 0;
+  padding: 0.6rem;
+  background: rgba(255, 80, 80, 0.15);
+  border-radius: 8px;
+}
+
+.hint {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.submitButton {
+  min-width: 140px;
+}
+.dataButton {
+  background: rgba(100, 150, 255, 0.2);
+  border-color: rgba(100, 150, 255, 0.4);
+}
+
+.dataButton:hover {
+  background: rgba(100, 150, 255, 0.3);
+  border-color: rgba(100, 150, 255, 0.6);
+}
